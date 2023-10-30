@@ -1,0 +1,1 @@
+export { default as Pagination } from './paginate-vuejs.vue'
