@@ -3,7 +3,7 @@
     <template v-for="item in itemList" :key="item">
       <!-- First page -->
       <template v-if="item === 'first'">
-        <li :class="pageItemClass">
+        <li :class="[pageItemClass, firstBtnClass]">
           <component
             v-if="type === 'button'"
             is="button"
@@ -30,7 +30,7 @@
 
       <!-- Previous page -->
       <template v-else-if="item === 'previous'">
-        <li :class="pageItemClass">
+        <li :class="[pageItemClass, prevBtnClass]">
           <component
             v-if="type === 'button'"
             is="button"
@@ -59,7 +59,7 @@
 
       <!-- Next page -->
       <template v-else-if="item === 'next'">
-        <li :class="[pageItemClass]">
+        <li :class="[pageItemClass, nextBtnClass]">
           <component
             v-if="type === 'button'"
             is="button"
@@ -90,7 +90,7 @@
 
       <!-- Last page -->
       <template v-else-if="item === 'last'">
-        <li :class="pageItemClass">
+        <li :class="[pageItemClass, lastBtnClass]">
           <component
             v-if="type === 'button'"
             is="button"
@@ -115,16 +115,18 @@
         </li>
       </template>
 
-      <!-- Ellipsis -->
+      <!-- Starting ellipsis -->
       <template v-else-if="item === 'start-ellipsis'">
-        <li :class="pageItemClass">
+        <li :class="[pageItemClass, startEllipsisClass]">
           <div :class="ellipsisClass">
             <slot name="ellipsisText">...</slot>
           </div>
         </li>
       </template>
+
+      <!-- Ending ellipsis -->
       <template v-else-if="item === 'end-ellipsis'">
-        <li :class="pageItemClass">
+        <li :class="[pageItemClass, endEllipsisClass]">
           <div :class="ellipsisClass">
             <slot name="ellipsisText">...</slot>
           </div>
@@ -133,7 +135,7 @@
 
       <!-- Pages -->
       <template v-else>
-        <li :class="pageItemClass">
+        <li :class="[pageItemClass, numberBtnClass]">
           <component
             v-if="type === 'button'"
             is="button"
@@ -230,6 +232,34 @@ const props = defineProps({
   ellipsisClass: {
     type: String,
     default: "pagination-ellipsis",
+  },
+  firstBtnClass: {
+    type: String,
+    default: "first-button",
+  },
+  lastBtnClass: {
+    type: String,
+    default: "last-button",
+  },
+  prevBtnClass: {
+    type: String,
+    default: "prev-button",
+  },
+  nextBtnClass: {
+    type: String,
+    default: "next-button",
+  },
+  startEllipsisClass: {
+    type: String,
+    default: "starting-ellipsis",
+  },
+  endEllipsisClass: {
+    type: String,
+    default: "ending-ellipsis",
+  },
+  numberBtnClass: {
+    type: String,
+    default: "number-button",
   },
   hidePrevButton: Boolean,
   hideNextButton: Boolean,
