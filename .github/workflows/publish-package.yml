@@ -31,7 +31,11 @@ jobs:
         node-version: 16
         scope: ${{ github.repository_owner }}
         registry-url: https://npm.pkg.github.com/
+    - name: Testing secrets
+      run: | 
+        echo "$NODE_AUTH_TOKEN"
     - run: npm ci
     - run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
+        
