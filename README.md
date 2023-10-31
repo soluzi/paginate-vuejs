@@ -7,7 +7,7 @@
 
 [![NPM](https://nodei.co/npm/paginate-vuejs.png)](https://nodei.co/npm/paginate-vuejs/)
 
-> ***Note:*** This version only works with Vue 3.0.
+> ***Note:*** This version only works with Vue 3
 
 ---
 
@@ -17,45 +17,47 @@
 
 ### Basic pagination
 
-![Basic pagination](https://github.com/Uniflapp/paginate-vuejs/blob/main/public/imgs/basic-pagination.png)
+![Basic pagination](https://github.com/Uniflapp/paginate-vuejs/blob/main/imgs/basic-pagination.png)
 
 ### Outlined pagination
 
-![Outlined pagination](https://github.com/Uniflapp/paginate-vuejs/blob/main/public/imgs/outlined-pagination.png)
+![Outlined pagination](https://github.com/Uniflapp/paginate-vuejs/blob/main/imgs/outlined-pagination.png)
 
 ### Rounded pagination
 
-![Rounded pagination](https://github.com/Uniflapp/paginate-vuejs/blob/main/public/imgs/rounded-pagination.png)
+![Rounded pagination](https://github.com/Uniflapp/paginate-vuejs/blob/main/imgs/rounded-pagination.png)
 
 ### Show buttons
 
-**You can optionally enable first-page and last-page buttons.**
+You can optionally enable first-page and last-page buttons.
 
-![Show buttons](https://github.com/Uniflapp/paginate-vuejs/blob/main/public/imgs/show-buttons.png)
+![Show buttons](https://github.com/Uniflapp/paginate-vuejs/blob/main/imgs/show-buttons.png)
 
 ### Hide buttons
 
-**You can optionally disable the previous-page and next-page buttons.**
+You can optionally disable the previous-page and next-page buttons.
 
-![Hide buttons](https://github.com/Uniflapp/paginate-vuejs/blob/main/public/imgs/hide-buttons.png)
+![Hide buttons](https://github.com/Uniflapp/paginate-vuejs/blob/main/imgs/hide-buttons.png)
 
 ### Custom icons
 
-**It's possible to customize the control icons.**
+It's possible to customize the control icons.
 
-![Custom icons](https://github.com/Uniflapp/paginate-vuejs/blob/main/public/imgs/custom-icons.png)
+![Custom icons](https://github.com/Uniflapp/paginate-vuejs/blob/main/imgs/custom-icons.png)
 
 ### Pagination ranges
 
-**You can specify how many digits to display either side of current page with the siblingCount prop, and adjacent to the start and end page number with the boundaryCount prop.**
+You can specify how many digits to display either side of current page with the siblingCount prop, and adjacent to the start and end page number with the boundaryCount prop.
 
-![Pagination ranges](https://github.com/Uniflapp/paginate-vuejs/blob/main/public/imgs/pagination-ranges.png)
+![Pagination ranges](https://github.com/Uniflapp/paginate-vuejs/blob/main/imgs/pagination-ranges.png)
 
 ## Pagination API
 
 **Explore the API reference documentation for the Vuejs Pagination component, where you can discover information regarding its props, classes, and other available APIs.**
 
 ### Demos
+
+This is a simple [***Demo***](https://codesandbox.io/s/paginate-vuejs-demo-m5zgny) environment for the package where you can use and test the package.
 
 #### Import
 

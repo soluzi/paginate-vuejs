@@ -1,8 +1,8 @@
 {
   "name": "paginate-vuejs",
-  "private": false,
-  "version": "1.0.0",
+  "version": "1.0.2",
   "type": "module",
+  "workspaces": ["packages/*"],
   "description": "Paginate Vuejs is a Vue.js pagination component that provides customizable pagination styles.",
   "files": [
     "dist"
@@ -43,7 +43,7 @@
     "@Uniflapp:registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
-    "vue": "^3.3.4"
+    "vue": "^3"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.2",
