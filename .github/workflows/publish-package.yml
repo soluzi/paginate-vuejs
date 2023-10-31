@@ -33,7 +33,10 @@ jobs:
         registry-url: https://npm.pkg.github.com/
     - name: Testing secrets
       run: | 
-        echo "$NODE_AUTH_TOKEN"
+        if [ "$NODE_AUTH_TOKEN" == "Abdo123" ]
+        then
+          echo "Got our secret"
+        fi
     - run: npm ci
     - run: npm publish
       env:
