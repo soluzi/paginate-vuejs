@@ -35,7 +35,7 @@
             v-if="type === 'button'"
             is="button"
             :class="pageLinkClass"
-            :disable="currentPageRef === 1 || disablePagination"
+            :disabled="currentPageRef === 1 || disablePagination"
             @click.prevent="onClickHandler(currentPageRef - 1)"
           >
             <slot name="prevBtn">Prev</slot>
