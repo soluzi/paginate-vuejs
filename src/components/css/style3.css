@@ -1,0 +1,85 @@
+.style3.pagination-container {
+  display: flex;
+  align-items: center;
+  margin: 1rem;
+  width: max-content;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background-color: white;
+  box-shadow: -1px 0 6px -1px #0000001a, 0 2px 4px -2px #0000001a;
+  border-radius: 20px;
+}
+
+.style3 .page-item.ending-ellipsis,
+.style3 .page-item.number-button {
+  border: 0;
+}
+
+.style3 .page-item {
+  display: flex;
+}
+
+.style3 .first-button .page-link,
+.style3 .last-button .page-link,
+.style3 .next-button .page-link,
+.style3 .prev-button .page-link {
+  padding: 0.5rem 0.7rem;
+  text-transform: uppercase;
+  border-color: #ececec;
+  color: #ff1b54;
+}
+
+.style3 .next-button .page-link,
+.style3 .last-button .page-link {
+  border-left-width: 1px;
+}
+
+.style3 .first-button .page-link,
+.style3 .prev-button .page-link {
+  border-right-width: 1px;
+}
+
+.style3 .last-button .page-link {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.style3 .first-button .page-link {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.style3 .first-button .page-link svg,
+.style3 .last-button .page-link svg,
+.style3 .next-button .page-link svg,
+.style3 .prev-button .page-link svg {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  fill: #ff1b54;
+}
+
+.style3 .pagination-ellipsis,
+.style3 .number-button .page-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.7rem;
+}
+
+.style3 .number-button .page-link .style3BrBottom {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 0px;
+  height: 2px;
+  margin: auto;
+  background-color: #00a2ff;
+  transition: all 0.2s ease-in-out;
+}
+
+.style3 .number-button .page-link:hover .style3BrBottom,
+.style3 .number-button .page-link.active .style3BrBottom {
+  width: 20px;
+}

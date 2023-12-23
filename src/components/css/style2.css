@@ -1,0 +1,85 @@
+.style2.pagination-container {
+  display: flex;
+  align-items: center;
+  margin: 1rem;
+  width: max-content;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.style2 .page-item.ending-ellipsis,
+.style2 .page-item.number-button {
+  border: 0;
+}
+
+.style2 .page-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.style2 .first-button .page-link,
+.style2 .last-button .page-link,
+.style2 .next-button .page-link,
+.style2 .prev-button .page-link {
+  padding: 0.5rem 0.7rem;
+  text-transform: uppercase;
+  border-color: #bcbcbc;
+  color: #ff1b54;
+  background-color: white;
+  box-shadow: 0px 0px 1px 0px #0000001a, 0 2px 4px -2px #0000001a;
+  margin-left: 5px;
+  border-radius: 5px;
+  transition: all .2s;
+}
+
+.style2 .first-button .page-link:hover,
+.style2 .last-button .page-link:hover,
+.style2 .next-button .page-link:hover,
+.style2 .prev-button .page-link:hover {
+  background-color: #ff1b54;
+  border-color: #f6134c;
+  color: white;
+}
+
+.style2 .first-button .page-link svg,
+.style2 .last-button .page-link svg,
+.style2 .next-button .page-link svg,
+.style2 .prev-button .page-link svg {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  fill: #ff1b54;
+}
+
+.style2 .first-button .page-link:hover svg,
+.style2 .last-button .page-link:hover svg,
+.style2 .next-button .page-link:hover svg,
+.style2 .prev-button .page-link:hover svg {
+  fill: white;
+} 
+
+.style2 .pagination-ellipsis,
+.style2 .number-button .page-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.7rem;
+}
+
+.style2 .number-button .page-link .style2BrBottom {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 0px;
+  height: 2px;
+  margin: auto;
+  background-color: #00a2ff;
+  transition: all 0.2s ease-in-out;
+}
+
+.style2 .number-button .page-link:hover .style2BrBottom,
+.style2 .number-button .page-link.active .style2BrBottom {
+  width: 20px;
+}
