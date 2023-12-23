@@ -1,0 +1,58 @@
+.style1.pagination-container {
+  display: flex;
+  align-items: center;
+  margin: 1rem;
+  width: max-content;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background-color: white;
+  border: 1px solid #bcbcbc;
+  border-radius: 5px;
+}
+
+.style1 .next-button .page-link,
+.style1 .prev-button .page-link {
+  border-color: #bcbcbc;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  color: #ff1b54;
+}
+
+
+.style1 .first-button .page-link svg,
+.style1 .last-button .page-link svg,
+.style1 .next-button .page-link svg,
+.style1 .prev-button .page-link svg {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  fill: #ff1b54;
+}
+
+.style1 .next-button .page-link {
+  border-left-width: 1px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.style1 .prev-button .page-link {
+  border-right-width: 1px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.style1 .pagination-ellipsis,
+.style1 .number-button .page-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.3rem;
+  border-radius: 4px;
+}
+.style1 .page-link:hover,
+.style1 .page-link.active {
+  background-color: #ff1b54;
+  color: white;
+}

@@ -21,6 +21,10 @@ export default defineConfig({
         globals: {
           vue: "Vue",
         },
+        assetFileNames: (assetInfo: any) => {
+          if (assetInfo.name === 'style.css') return 'paginate-vuejs.css'
+          return assetInfo.name
+        }
       },
     },
   },
