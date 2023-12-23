@@ -1,5 +1,5 @@
 <template>
-  <ul :class="pageContainerClass">
+  <ul id="paginate-vuejs" :class="[pageContainerClass]">
     <template v-for="item in itemList" :key="item">
       <!-- First page -->
       <template v-if="item === 'first'">
@@ -146,7 +146,8 @@
             :disabled="disablePagination"
             @click.prevent="() => onClickHandler(Number(item))"
           >
-            {{ item }}
+            <span>{{ item }}</span>
+            <div v-if="paginationTypes === 'normal'"></div>
           </component>
           <component
             v-else
@@ -159,7 +160,8 @@
             :href="navigationHandler(Number(item))"
             @click.prevent="() => onClickHandler(Number(item))"
           >
-            {{ item }}
+            <span>{{ item }}</span>
+            <div v-if="paginationTypes === 'normal'"></div>
           </component>
         </li>
       </template>
@@ -261,6 +263,12 @@ const props = defineProps({
     type: String,
     default: "number-button",
   },
+  paginationTypes: {
+    type: String,
+    default: "normal",
+    validator: (v: string) =>
+      ["normal", "standard", "minimal", "of"].includes(v),
+  },
   hidePrevButton: Boolean,
   hideNextButton: Boolean,
   showFirstButton: Boolean,
@@ -298,6 +306,7 @@ const navigationHandler = (page: number) => {
 
 const itemList = computed(() => {
   const page = currentPageRef.value;
+  const total = pagesCount.value;
 
   const siblingsStart = Math.max(
     Math.min(
@@ -315,81 +324,66 @@ const itemList = computed(() => {
     endPages.length > 0 ? endPages[0] - 2 : pagesCount.value - 1
   );
 
-  const generatedItemList = [
-    ...(props.showFirstButton ? ["first"] : []),
-    ...(props.hidePrevButton ? [] : ["previous"]),
-    ...startPages,
-    ...(siblingsStart > props.boundaryCount + 2
-      ? ["start-ellipsis"]
-      : props.boundaryCount + 1 < pagesCount.value - props.boundaryCount
-      ? [props.boundaryCount + 1]
-      : []),
-    ...range(siblingsStart, siblingsEnd),
-    ...(siblingsEnd < pagesCount.value - props.boundaryCount - 1
-      ? ["end-ellipsis"]
-      : pagesCount.value - props.boundaryCount > props.boundaryCount
-      ? [pagesCount.value - props.boundaryCount]
-      : []),
-    ...endPages,
-    ...(props.hideNextButton ? [] : ["next"]),
-    ...(props.showLastButton ? ["last"] : []),
-  ];
+  const generatedItemList: any = [];
+
+  switch (props.paginationTypes) {
+    case "normal":
+      generatedItemList.push(
+        ...[
+          ...(props.showFirstButton ? ["first"] : []),
+          ...(props.hidePrevButton ? [] : ["previous"]),
+          ...startPages,
+          ...(siblingsStart > props.boundaryCount + 2
+            ? ["start-ellipsis"]
+            : props.boundaryCount + 1 < pagesCount.value - props.boundaryCount
+            ? [props.boundaryCount + 1]
+            : []),
+          ...range(siblingsStart, siblingsEnd),
+          ...(siblingsEnd < pagesCount.value - props.boundaryCount - 1
+            ? ["end-ellipsis"]
+            : pagesCount.value - props.boundaryCount > props.boundaryCount
+            ? [pagesCount.value - props.boundaryCount]
+            : []),
+          ...endPages,
+          ...(props.hideNextButton ? [] : ["next"]),
+          ...(props.showLastButton ? ["last"] : []),
+        ]
+      );
+      break;
+
+    case "standard":
+      generatedItemList.push(
+        ...[
+          ...(props.hidePrevButton ? [] : ["previous"]),
+          currentPageRef.value,
+          ...(props.hideNextButton ? [] : ["next"]),
+        ]
+      );
+
+      break;
+    case "minimal":
+      generatedItemList.push(
+        ...[
+          ...(props.hidePrevButton ? [] : ["previous"]),
+          ...(props.hideNextButton ? [] : ["next"]),
+        ]
+      );
+
+      break;
+    case "of":
+      generatedItemList.push(
+        ...[
+          ...(props.hidePrevButton ? [] : ["previous"]),
+          page + " of " + total,
+          ...(props.hideNextButton ? [] : ["next"]),
+        ]
+      );
+
+      break;
+  }
 
   return generatedItemList;
 });
 </script>
 
-<style scoped>
-ul {
-  display: inline-flex;
-  list-style-type: none;
-  padding-inline-start: 0;
-}
-
-ul a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.pagination-container {
-  display: flex;
-  column-gap: 10px;
-}
-
-.pagination-ellipsis {
-  height: 40px;
-  width: 40px;
-  border-radius: 20px;
-  background-color: rgb(242, 242, 242);
-  border: 1px solid rgb(217, 217, 217);
-  color: black;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.page-item {
-  margin-left: 5px;
-}
-
-.page-link {
-  height: 40px;
-  width: 40px;
-  border-radius: 20px;
-  background-color: rgb(242, 242, 242);
-  border: 1px solid rgb(217, 217, 217);
-  color: black;
-}
-.page-link:hover {
-  background-color: #d8d8d8;
-}
-.active {
-  background-color: #3498db;
-  border: 1px solid #3498db;
-  color: white;
-}
-.active:hover {
-  background-color: #2988c8;
-}
-</style>
+<style></style>
