@@ -68,7 +68,8 @@
   padding: 0.5rem 0.7rem;
 }
 
-#paginate-vuejs .number-button .page-link #paginate-vuejsBrBottom {
+#paginate-vuejs .number-button .page-link::before {
+  content: "";
   position: absolute;
   bottom: 0;
   display: block;
@@ -77,9 +78,10 @@
   margin: auto;
   background-color: #00a2ff;
   transition: all 0.2s ease-in-out;
+  opacity: 0;
 }
 
-#paginate-vuejs .number-button .page-link:hover #paginate-vuejsBrBottom,
-#paginate-vuejs .number-button .page-link.active #paginate-vuejsBrBottom {
+#paginate-vuejs .number-button .page-link.active::before {
   width: 20px;
+  opacity: 1;
 }

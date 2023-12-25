@@ -147,7 +147,17 @@
             @click.prevent="() => onClickHandler(Number(item))"
           >
             <span>{{ item }}</span>
-            <div v-if="paginationTypes === 'normal'"></div>
+          </component>
+          <component
+            v-else-if="['of', 'standard'].includes(paginationTypes)"
+            is="dev"
+            :class="[
+              pageLinkClass,
+              currentPageRef === Number(item) ? activeClass : '',
+            ]"
+            :disabled="disablePagination"
+          >
+            <span>{{ item }}</span>
           </component>
           <component
             v-else
@@ -161,7 +171,6 @@
             @click.prevent="() => onClickHandler(Number(item))"
           >
             <span>{{ item }}</span>
-            <div v-if="paginationTypes === 'normal'"></div>
           </component>
         </li>
       </template>
